@@ -1,0 +1,127 @@
+* {
+   padding: 0px;
+   margin: 0px;
+}
+
+main{
+   width: 1200px;
+   margin: auto;
+}
+
+header{
+   display: grid;
+   grid-template-columns: 65px 45px 85px;
+   align-items: center;
+   gap: 10px;
+   width: 100%;
+   height: 50px;
+   background-color: #B9BBDF;
+   margin-bottom: 2em;
+}
+
+header a{
+   text-decoration: none;
+   font-variant: small-caps;
+   font-family: Trebuchet MS, sans-serif;
+   margin-left: 635px;
+   color: white;
+}
+
+.form{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 1000px;
+   height: 600px;
+   background-color: #878ECD;
+   border: none;
+   border-radius: 3px;
+   margin: auto;
+}
+
+.text_ssil{
+   margin-bottom: 60px;
+   color: white;
+   font-variant: small-caps;
+   font-family: Trebuchet MS, sans-serif;
+   font-size: 40px;
+}
+
+.long_link{
+   margin-bottom: 120px;
+   width: 250px;
+   height: 25px;
+   border-radius: 5px;
+}
+
+.accesses{
+   font-variant: small-caps;
+   font-family: Trebuchet MS, sans-serif;
+   margin-bottom: 20px;
+   width: 200px;
+   height: 25px;
+   border-radius: 5px;
+}
+
+.autoriza{
+   font-variant: small-caps;
+   font-family: Trebuchet MS, sans-serif;
+   margin-bottom: 20px;
+   width: 200px;
+   height: 25px;
+   border-radius: 5px;
+}
+
+.login_password{
+   margin-bottom: 60px;
+   color: white;
+   font-variant: small-caps;
+   font-family: Trebuchet MS, sans-serif;
+   font-size: 20px;
+}
+
+.vxod{
+   margin-bottom: 60px;
+   color: white;
+   font-variant: small-caps;
+   font-family: Trebuchet MS, sans-serif;
+   font-size: 40px;
+}
+
+.btn_create{
+   font-variant: small-caps;
+   font-family: Trebuchet MS, sans-serif;
+   border-radius: 10px;
+   border: none;
+}
+
+.div_reg h3{
+   margin-top: 1em;
+}
+
+.div_reg button{
+   margin-bottom: 1em;
+}
+
+.div_auth h3{
+   margin-top: 1em;
+}
+
+.div_auth button{
+   margin-bottom: 1em;
+}
+
+.form p{
+   padding: 0px;
+   margin: 0px;
+}
+
+button{
+   background-color: white;
+   border: 1px solid black;
+   border-radius: 3px;
+   padding: 10px;
+   padding-left: 20px;
+   padding-right: 20px;
+}

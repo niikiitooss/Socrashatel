@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Auth{% endblock %}
+
+{% block content %}
+  <main>
+      <div class="div_auth div_user">
+        <form class="form_auth form" method="post">
+          <h3 class="vxod">Вход</h3>
+          <br>
+          <label class="login_password" for="login">Логин</label>
+          <input class="autoriza" type="text" name="login">
+          <label class="login_password" for="password">Пароль</label>
+          <input class="autoriza" type="password" name="password">
+          <p class="eror">{{massage}}</p>
+          <button class="btn_create">Войти</button>
+        </form>
+      </div>
+  </main>
+{% endblock %}

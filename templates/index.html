@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <main>
+    <form class="create_link form" method="post">
+      <label class="text_ssil">Введите ссылку</label>
+      <input type="text" class="long_link" name="long_link">
+      <select name="accesses" class="accesses">
+        <option value="0">Публичный</option>
+        <option value="1">Приватный</option>
+        <option value="2">Общий</option>
+      </select>
+      <button class="btn_create">Сократить ссылку</button>
+    </form>
+  </main>
+{% endblock %}
