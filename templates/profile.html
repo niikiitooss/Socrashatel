@@ -4,9 +4,45 @@
 
 {% block content %}
   <main>
-    <div>
-      <h3>Ваши готовые ссылки</h3>
-
+    <div class="form">
+      <h3 class="text_main">Ваши ссылки</h3>
+      {% for i in userlinks:%}
+      <div class="div_profile_link">
+        <p>{{i[0]}}</p>
+        <p>{{hosthref}}socr/{{i[1]}}</p>
+        <p>{{i[2]}}</p>
+        <p>{{i[3]}}</p>
+        <form method="post">
+          <select name="access">
+            {% if i[4] == 2: %}
+              <option value="1">публичный</option>
+              <option selected value="2">общий</option>
+              <option value="3">приватный</option>
+            {% elif i[4] == 3: %}
+              <option value="1">публичный</option>
+              <option value="2">общий</option>
+              <option selected value="3">приватный</option>
+            {% else %}
+              <option value="1">публичный</option>
+              <option value="2">общий</option>
+              <option value="3">приватный</option>
+            {% endif %}
+          </select>
+          <input class="form_edit_input" type="text" name="short" value={{i[1]}} />
+          <div class="form_edit_div">
+            <label for="pseudonym">Удалить псевдоним</label>
+            <input name="pseudonym" type="checkbox" id="pseudonym">
+          </div>
+          <input type="hidden" name="long" value={{i[0]}}>
+          <input type="hidden" name="edit_long_name" value={{i[0]}} id=`long_name_{{i[0]}}`>
+          <button name="btn">Изменить</button>
+        </form>
+        <form method="post">
+          <input type="hidden" name="long_name" value={{i[0]}} id={{i[0]}}>
+          <button name="btn">Удалить</button>
+        </form>
+      </div>
+      {% endfor %}
     </div>
   </main>
 {% endblock %}

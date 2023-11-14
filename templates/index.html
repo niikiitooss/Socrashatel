@@ -4,15 +4,17 @@
 
 {% block content %}
   <main>
-    <form class="create_link form" method="post">
-      <label class="text_ssil">Введите ссылку</label>
-      <input type="text" class="long_link" name="long_link">
-      <select name="accesses" class="accesses">
-        <option value="0">Публичный</option>
-        <option value="1">Приватный</option>
-        <option value="2">Общий</option>
+    <form class="form_link form" method="post">
+      <h2 class="text_main">Сокращение ссылки</h2>
+      <input class="input_lp" type="text" name="long_link" placeholder="Введите ссылку">
+      <select class="input_lp" name="accesses">
+        <option value="1">публичный</option>
+        <option value="2">общий</option>
+        <option value="3">приватный</option>
       </select>
-      <button class="btn_create">Сократить ссылку</button>
+      <input class="input_lp" type="text" name="pseudonym" placeholder="Псевдоним">
+      <button class="btn_create">Сократить</button>
+      <p class="error">{{massage}}</p>
     </form>
   </main>
 {% endblock %}
