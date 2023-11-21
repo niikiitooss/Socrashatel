@@ -6,10 +6,11 @@
   <main>
     <div class="form">
       <h3 class="text_main">Ваши ссылки</h3>
+      <p>{{userLogin}}</p>
       {% for i in userlinks:%}
       <div class="div_profile_link">
         <p>{{i[0]}}</p>
-        <p>{{hosthref}}socr/{{i[1]}}</p>
+        <a href={{hosthref}}socr/{{i[1]}}>{{hosthref}}socr/{{i[1]}}</a>
         <p>{{i[2]}}</p>
         <p>{{i[3]}}</p>
         <form method="post">

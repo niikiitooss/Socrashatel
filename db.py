@@ -58,6 +58,12 @@ def getUserId(login):
         WHERE login = ? 
         ''', (login,)).fetchone()
 
+def getUserLogin(id):
+    return cursor.execute('''SELECT login 
+        FROM users
+        WHERE id = ? 
+        ''', (id,)).fetchone()
+
 def addLink(long,short,access_id,user_id,count = 0):
     cursor.execute('''INSERT INTO
         links (long,short,count,access_id,user_id)
@@ -122,6 +128,8 @@ def updateCount(long,count):
     SET count = ?
     WHERE long = ?''',(count,long))
     connect.commit()
+
+
 
 def accessesInfo():
     return cursor.execute('''SELECT level_ru

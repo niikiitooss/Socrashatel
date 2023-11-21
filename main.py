@@ -76,6 +76,8 @@ def reg():
                 if confirmPassword == password:
                     hash_password = generate_password_hash(password)
                     registr(login, hash_password)
+                    auth_user = getUserId(login)[0]
+                    session['user'] = auth_user
                 else:
                     massage = 'Пароли не совпадают'
             else:
@@ -91,7 +93,7 @@ def profile():
     edit_long_name = request.form.get('edit_long_name')
     userlinks = getUserLinks(session['user'])
     hosthref = request.host_url
-
+    userLogin = getUserLogin(session['user'])[0]
     if long_name:
         deleteLink(long_name,session['user'])
         return redirect('/profile')
@@ -118,12 +120,48 @@ def profile():
                     return redirect('/profile')
                 else:
                     massage = 'Данный псевдоним занят'
-    return render_template("/profile.html", userlinks=userlinks, hosthref=hosthref)
+    return render_template("/profile.html", userlinks=userlinks, hosthref=hosthref, userLogin=userLogin)
 
 @app.route('/logout', methods=['post', 'get'])
 def logout():
     session.clear()
     return redirect('/')
+
+@app.route('/message')
+def message():
+    return render_template('/message.html')
+
+@app.route('/error')
+def error():
+    return render_template('/error.html')
+
+@app.route('/socr/<href>')
+def link(href):
+    if len(getLinkInfo(href)) != 0:
+        link = getLinkInfo(href)[0]
+        count = link[1]
+        if link[2] == 1:
+            updateCount(link[0],count + 1)
+            return redirect(link[0])
+        elif link[2] == 2:
+            if 'user' in session:
+                updateCount(link[0], count + 1)
+                return redirect(link[0])
+            else:
+                return redirect('/auth')
+        elif link[2] == 3:
+            if 'user' in session:
+                if len(getLongUser(link[0],session['user'])) > 0:
+                    updateCount(link[0], count + 1)
+                    return redirect(link[0])
+                else:
+                    return redirect('/message')
+            else:
+                return redirect('/auth')
+        elif link[2] == None:
+            return redirect('/message')
+    else:
+        return redirect('/error')
 
 if __name__ == '__main__':
     app.run()
