@@ -30,10 +30,6 @@
             {% endif %}
           </select>
           <input class="form_edit_input" type="text" name="short" value={{i[1]}} />
-          <div class="form_edit_div">
-            <label for="pseudonym">Удалить псевдоним</label>
-            <input name="pseudonym" type="checkbox" id="pseudonym">
-          </div>
           <input type="hidden" name="long" value={{i[0]}}>
           <input type="hidden" name="edit_long_name" value={{i[0]}} id=`long_name_{{i[0]}}`>
           <button name="btn">Изменить</button>

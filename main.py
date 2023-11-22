@@ -97,18 +97,15 @@ def profile():
     if long_name:
         deleteLink(long_name,session['user'])
         return redirect('/profile')
-
     if edit_long_name:
         long = request.form.get('long')
         short = request.form.get('short')
         pseudonym = request.form.get('pseudonym')
         access = request.form.get('access')
-        print("ffdfd")
         if long != None and short != None:
-            if pseudonym == "on":
+            if short == "":
                 user_short_link = hashlib.md5(long.encode()).hexdigest()[:random.randint(8, 12)]
                 updateLink(long, user_short_link, access, session['user'])
-                print("1")
                 return redirect('/profile')
             elif pseudonym == None and userlinks[0][2] != access:
                 updateLink(long, short, access, session['user'])
